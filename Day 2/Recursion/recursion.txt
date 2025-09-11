@@ -1,0 +1,142 @@
+1.What is recursion?
+2. When to use recursion.
+3. Visualization: Recursion tree
+                  -Recursion Call Stack
+4.Recursion vs Iteration.
+5.Ways to write base condition.
+6. Recursive Leap of Faith.
+7. Recurrence relation.
+8. Solving Recursion questions.
+9. 0 to n and n to 0.
+
+
+
+1.
+-Is a function calling itself until a base or terminating condition occurs.
+e.g having to print numbers from 1-5, the pseudocode for that looks something like this:
+    function(n) {
+    if n > 5;
+    print n;
+    function(n+1)
+    }
+
+    function(1)
+-our function has been called recursively, with a different input.
+-the new input bring our values closer to the base condition, in our case 5.
+
+
+2.
+-When you need to solve a problem and on dividing it to smaller subproblems,
+and to solve these subproblems will help you solve the problem, recusion is likely needed.
+-The smaller subproblems are often of similar nature, e.g:
+-We need to find 'n!', n = 5;
+    - 5 x 4 x 3 x 2 x 1;
+    -our base condition being 1, our subproblem : 5 x 4!
+    -our subproblem is 4!
+    -The pseudocode will look something like:
+
+    function (n) {
+        if n = 1, return 1;
+        //our base condition.
+        return function (n-1)!  * n;
+        //we are recursively calling our function with our input as 'n-1'
+
+    }
+
+
+6.
+-How to actually use recursion in coding.
+-Steps:
+1. Understand the problem.
+2. Identify the subproblem.
+3.Trust / Faith.
+//trust that the recursive call ill correctly solve a smaller version of my problem
+//assume that if your function works for simpler cases it will work for more complex ones.
+4. Link 1 and 2.
+5. Base condition.
+
+__Print a sequence that looks like this: (n, n-1....1, 1,2...n)
+__Our subproblem:  print 2,1,1,2
+__Trust: on setting our function correctly and determining the correct base case, recursion
+saves one from mentally unrolling all the 'inner workings'.
+__Link: in the output ensure subproblem is combined in the problem 
+__Base condition: ensure it is well written to avoid an infinite loop.
+
+Pseudocode:
+function seq(n) {
+    if (n=0) return;
+//our base case
+    print n;
+    seq(n-1);
+//our inductive step
+    print n;
+}
+seq(3);
+//our input
+
+
+4.
+Psuedocode for factorial using iteration.
+fact = 1;
+for 1 = 5 to 1;
+fact = fact * 1;
+return fact;
+
+-Things done recursively can also be done iteratively.
+-Iteration does not use space on the recursion call stack.
+-Better space complexity is obtained when using iteration.
+-Recursion has both an ascending(calling) and descending(returning) phase.
+-Iteration only has the ascending phase.
+-Solutions written recursively are more readable and easily written.
+
+
+5.
+-Tells the function when to stop calling itself and start returning.
+-The wrong way of identifying this is trying to visualize every step of our recursive function so as to know when the function is to terminate,
+this will be very hard in more complex questions.
+-The better way of doing this is by thinking of the last valid input or first invalid input.
+
+Pseudocode for factorial, last valid input is 1.
+function (n){
+    if n is equal to 1, return 1;
+    return function(n-1) * n;
+}
+
+function(n){
+    if n <1, return
+    print n;
+    functin (n-1);
+}
+//first invalid input is 
+
+
+7.
+-The expresses the solution of a problem as a function of the solution to smaller instances of the same problem.
+-Basically the 4th step of recursion, combining the first and secod step.
+
+
+8.
+-Draw the recursion tree, code out your question.
+-Practice drawing recursion trees.
+
+
+9.
+-Solutions can move from 0 to n or n to 0.
+-Practice writing solutions in both ways.
+Q: Given n, find 1 + 2 + ....n
+
+**0 to n:
+Pseudocode: 
+function sum (curr, n) {
+
+    if curr = n, return n;
+    return curr + sum (curr+1, n)
+}
+sum(0, 5); 
+
+
+Complexity Analysis of Recursive solutions:
+Time = (no of branches) * (work done per branch)
+Space = the max depth of our recursive tree.
+
+
