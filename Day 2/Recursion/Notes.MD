@@ -17,3 +17,14 @@
 3.Ensure the recursion terminates - making sure our recursive function reaches the base case.
 
 4.Combine the solutions of subproblems finding the solution.
+
+-Recursion is just functions calling functions, the call stack remembers all the calls that have not finished yet.
+
+-The call stack keeps tabs on all functions that have been called but have not finished yet.
+
+-When a function completes, it gets popped off the stack and forgotten, the stack only holds the ones still waiting.
+
+-So what happens is that:
+
+    Going down - functions are called one after the other, each pausing and waiting until the base case is hit.
+    Going up - base case returns a value and that triggers each waiting function to finally finish, one by one, back up the chain.
